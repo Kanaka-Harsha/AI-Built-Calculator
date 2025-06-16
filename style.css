@@ -1,0 +1,566 @@
+/* Import advanced fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        /* CSS Custom Properties - Advanced Color Palette */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --secondary-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            --holographic: linear-gradient(45deg, #ff0080, #00ff80, #8000ff, #ff8000, #0080ff);
+            --glass-primary: rgba(255, 255, 255, 0.15);
+            --glass-secondary: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00ffff;
+            --neon-pink: #ff0080;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --neon-orange: #ff8000;
+            --electric-blue: #0080ff;
+            --quantum-gold: #ffd700;
+            --cosmic-purple: #8a2be2;
+            --shadow-depth: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --glow-intensity: 0 0 20px;
+            --transition-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --border-radius: 24px;
+        }
+
+        /* Global reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Quantum Body Background */
+        body 
+        {
+            font-family: 'Exo 2', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: #0a0a0a;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Animated Holographic Background */
+        body::before 
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--holographic);
+            background-size: 400% 400%;
+            animation: holographicShift 8s ease-in-out infinite;
+            opacity: 0.1;
+            z-index: -3;
+        }
+
+        /* Particle Network Background */
+        body::after 
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 70% 70%, var(--neon-cyan) 2px, transparent 4px),
+                radial-gradient(circle at 80% 80%, var(--neon-pink) 2px, transparent 4px),
+                radial-gradient(circle at 80% 60%, var(--neon-purple) 2px, transparent 4px),
+                radial-gradient(circle at 90% 10%, var(--neon-orange) 2px, transparent 4px);
+            background-size: 100px 100px, 80px 80px, 120px 120px, 90px 90px;
+            animation: particleFloat 100s linear infinite;
+            opacity: 0.3;
+            z-index: -2;
+        }
+
+        @keyframes holographicShift 
+        {
+            0%, 100% { background-position: 100% 80%; }
+            25% { background-position: 100% 80%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 100% 100%; }
+        }
+
+        @keyframes particleFloat 
+        {
+            0% { transform: translate(0, 0) rotate(10deg); }
+            33% { transform: translate(30px, -30px) rotate(180deg); }
+            66% { transform: translate(-200px, 20px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        /* Quantum Grid Background */
+        .quantum-grid 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 128, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 4s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.1; }
+        }
+
+        /* Floating Energy Orbs */
+        .energy-orb 
+        {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: orbFloat 4s ease-in-out infinite;
+        }
+
+        .energy-orb:nth-child(1) 
+        {
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, var(--neon-cyan), transparent);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .energy-orb:nth-child(2) 
+        {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--neon-pink), transparent);
+            top: 70%;
+            right: 15%;
+            animation-delay: -2s;
+        }
+
+        .energy-orb:nth-child(3) 
+        {
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, var(--neon-purple), transparent);
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -4s;
+        }
+
+        @keyframes orbFloat 
+        {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.2); }
+        }
+
+        /* Main Container - Quantum Glass */
+        .container 
+        {
+            background: var(--glass-primary);
+            backdrop-filter: blur(40px) saturate(200%);
+            border-radius: var(--border-radius);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                var(--shadow-depth),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 60px rgba(102, 126, 234, 0.3);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s var(--transition-elastic);
+            transform-style: preserve-3d;
+        }
+
+        .container::before 
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+
+        .container:hover::before 
+        {
+            transform: translateX(100%);
+        }
+
+        .container:hover 
+        {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 
+                0 35px 80px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 100px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Quantum Title */
+        h1 
+        {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: transparent;
+            background: var(--secondary-gradient);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: titleGradient 9s ease-in-out infinite;
+            text-align: center;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            position: relative;
+            text-shadow: 0 0 30px rgba(207, 103, 103, 0.5);
+        }
+
+        @keyframes titleGradient 
+        {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h1::after 
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%) skewX(-20deg);
+            animation: titleShimmer 6s ease-in-out infinite;
+        }
+
+        @keyframes titleShimmer 
+        {
+            0% { transform: translateX(-100%) skewX(-20deg); }
+            100% { transform: translateX(200%) skewX(-20deg); }
+        }
+
+        /* Quantum Calculator */
+        .calculator 
+        {
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(30, 30, 30, 0.9));
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 
+                inset 0 2px 20px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(57, 255, 20, 0.2);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator::before 
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(45, 222, 14, 0.1), transparent);
+            animation: calculatorScan 6s linear infinite;
+        }
+
+        @keyframes calculatorScan {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+
+        .display 
+        {
+            background: radial-gradient(ellipse at top, rgba(0, 0, 0, 0.9), rgba(10, 10, 10, 0.95));
+            border-radius: 16px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 25px;
+            margin-bottom: 25px;
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--neon-green);
+            text-shadow: var(--glow-intensity) var(--neon-green);
+            border: 2px solid rgba(57, 255, 20, 0.6);
+            box-shadow: 
+                inset 0 4px 20px rgba(0, 0, 0, 0.8),
+                var(--glow-intensity) rgba(57, 255, 20, 0.6);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 2px;
+        }
+
+        .display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.2), transparent);
+            animation: displayScan 3s ease-in-out infinite;
+        }
+
+        @keyframes displayScan 
+        {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .display.error {
+            color: var(--neon-pink);
+            text-shadow: var(--glow-intensity) var(--neon-pink);
+            border-color: rgba(255, 0, 128, 0.6);
+            box-shadow: 
+                inset 0 4px 20px rgba(0, 0, 0, 0.8),
+                var(--glow-intensity) rgba(255, 0, 128, 0.6);
+            animation: displayError 0.5s var(--transition-elastic);
+        }
+
+        @keyframes displayError {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Quantum Button Grid */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        /* Quantum Buttons */
+        button {
+            height: 70px;
+            border: none;
+            border-radius: 16px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s var(--transition-elastic);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            user-select: none;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        button:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        button:active {
+            transform: scale(0.95) translateZ(-10px);
+        }
+
+        /* Number Buttons - Quantum Glass */
+        .btn_0, .btn_1, .btn_2, .btn_3, .btn_4, .btn_5, .btn_6, .btn_7, .btn_8, .btn_9, .btn_dot {
+            background: var(--glass-secondary);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn_0:hover, .btn_1:hover, .btn_2:hover, .btn_3:hover, .btn_4:hover, .btn_5:hover, .btn_6:hover, .btn_7:hover, .btn_8:hover, .btn_9:hover, .btn_dot:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Operation Buttons */
+        .btn_add {
+            background: linear-gradient(135deg, var(--neon-orange), #ff6b35);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 128, 0, 0.4);
+            border: 1px solid rgba(255, 128, 0, 0.6);
+        }
+
+        .btn_add:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 128, 0, 0.6);
+        }
+
+        .btn_sub {
+            background: linear-gradient(135deg, var(--neon-purple), #8e44ad);
+            color: white;
+            box-shadow: 0 8px 25px rgba(191, 0, 255, 0.4);
+            border: 1px solid rgba(191, 0, 255, 0.6);
+        }
+
+        .btn_sub:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(191, 0, 255, 0.6);
+        }
+
+        .btn_mul {
+            background: linear-gradient(135deg, var(--neon-cyan), #2980b9);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+            border: 1px solid rgba(0, 255, 255, 0.6);
+        }
+
+        .btn_mul:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.6);
+        }
+
+        .btn_div {
+            background: linear-gradient(135deg, var(--neon-pink), #e74c3c);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 0, 128, 0.4);
+            border: 1px solid rgba(255, 0, 128, 0.6);
+        }
+
+        .btn_div:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 0, 128, 0.6);
+        }
+
+        /* Special Buttons */
+        .btn_clr {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.5);
+            border: 1px solid rgba(255, 71, 87, 0.7);
+        }
+
+        .btn_clr:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.7);
+        }
+
+        .btn_eq {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--neon-green), #27ae60);
+            color: white;
+            box-shadow: 0 8px 25px rgba(57, 255, 20, 0.5);
+            border: 1px solid rgba(57, 255, 20, 0.7);
+            position: relative;
+        }
+
+        .btn_eq::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%) skewX(-20deg);
+            transition: transform 0.6s ease;
+        }
+
+        .btn_eq:hover::after {
+            transform: translateX(100%) skewX(-20deg);
+        }
+
+        .btn_eq:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(57, 255, 20, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .calculator {
+                padding: 20px;
+            }
+            
+            .buttons {
+                gap: 10px;
+            }
+            
+            button {
+                height: 60px;
+                font-size: 1.2rem;
+            }
+            
+            .display {
+                min-height: 60px;
+                font-size: 2rem;
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            button {
+                height: 50px;
+                font-size: 1rem;
+            }
+            
+            .display {
+                min-height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus states for accessibility */
+        button:focus {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        .display:focus {
+            outline: 2px solid var(--neon-green);
+            outline-offset: 2px;
+        }

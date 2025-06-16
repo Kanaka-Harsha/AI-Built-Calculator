@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Calculator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quantum-grid"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    
+    <div class="container">
+        <h1>Calculator </h1>
+        <div class="calculator">
+            <div class="display" id="display">0</div>
+            <div class="buttons">
+                <button class="btn_clr" onclick="clearDisplay()">CLEAR</button>
+                <button class="btn_div" onclick="inputOperator('/')">/</button>
+                <button class="btn_mul" onclick="inputOperator('*')">×</button>
+                <button class="btn_7" onclick="inputNumber('7')">7</button>
+                <button class="btn_8" onclick="inputNumber('8')">8</button>
+                <button class="btn_9" onclick="inputNumber('9')">9</button>
+                <button class="btn_sub" onclick="inputOperator('-')">-</button>
+                <button class="btn_4" onclick="inputNumber('4')">4</button>
+                <button class="btn_5" onclick="inputNumber('5')">5</button>
+                <button class="btn_6" onclick="inputNumber('6')">6</button>
+                <button class="btn_add" onclick="inputOperator('+')">+</button>
+                <button class="btn_1" onclick="inputNumber('1')">1</button>
+                <button class="btn_2" onclick="inputNumber('2')">2</button>
+                <button class="btn_3" onclick="inputNumber('3')">3</button>
+                <button class="btn_0" onclick="inputNumber('0')">0</button>
+                <button class="btn_dot" onclick="inputDecimal()">.</button>
+                <button class="btn_eq" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
